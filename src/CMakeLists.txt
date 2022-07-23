@@ -1,4 +1,6 @@
-configure_file(magic.h.in magic.h)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
+include(ConfigureChecks)
 
 add_library(libmagic SHARED
   buffer.c magic.c magic.h apprentice.c softmagic.c ascmagic.c
@@ -10,3 +12,5 @@ add_library(libmagic SHARED
 add_library(file SHARED
   file.c seccomp.c
 )
+
+configure_file(magic.h.in magic.h)
