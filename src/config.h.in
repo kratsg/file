@@ -1,1 +1,6 @@
+#define VERSION "@VERSION@"
 #cmakedefine HAVE_STDINT_H
+#cmakedefine HAVE_WCHAR_H
+#cmakedefine HAVE_MBRTOWC
+#cmakedefine HAVE_WCWIDTH
+#cmakedefine HAVE_WCTYPE_H

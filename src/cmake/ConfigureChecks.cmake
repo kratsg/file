@@ -16,11 +16,15 @@ check_include_file("string.h" HAVE_STRING_H)
 check_include_file("sys/stat.h" HAVE_SYS_STAT_H)
 check_include_file("sys/types.h" HAVE_SYS_TYPES_H)
 check_include_file("unistd.h" HAVE_UNISTD_H)
+check_include_file("wchar.h" HAVE_WCHAR_H)
+check_include_file("wctype.h" HAVE_WCTYPE_H)
 
 check_function_exists("getpagesize" HAVE_GETPAGESIZE)
 check_function_exists("bcopy" HAVE_BCOPY)
 check_symbol_exists("memmove" "string.h" HAVE_MEMMOVE)
 check_function_exists("mmap" HAVE_MMAP)
+check_function_exists("mbrtowc" HAVE_MBRTOWC)
+check_function_exists("wcwidth" HAVE_WCWIDTH)
 
 #/* Define to 1 if you have the ANSI C header files. */
 check_include_files("stdlib.h;stdarg.h;string.h;float.h" STDC_HEADERS)
@@ -42,6 +46,8 @@ else(HAVE_SYS_TYPES_H)
 endif(HAVE_SYS_TYPES_H)
 
 add_definitions(-DMAGIC=${CMAKE_INSTALL_DATADIR}/magic)
+
+string(REPLACE "." "" VERSION ${PROJECT_VERSION})
 
 CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/config.h.in ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/magic.h.in ${CMAKE_CURRENT_BINARY_DIR}/magic.h)
