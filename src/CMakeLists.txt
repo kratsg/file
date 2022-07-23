@@ -9,8 +9,6 @@ add_library(libmagic SHARED
   file_opts.h elfclass.h mygetopt.h cdf.c cdf_time.c readcdf.c cdf.h
 )
 
-add_library(file SHARED
-  file.c seccomp.c
-)
+add_executable(file_c file.c)
 
-configure_file(magic.h.in magic.h)
+target_compile_definitions(file_c PUBLIC HAVE_CONFIG_H=1)
