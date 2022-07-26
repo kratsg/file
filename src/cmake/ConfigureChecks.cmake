@@ -7,6 +7,7 @@ include(CheckStructHasMember)
 include(TestBigEndian)
 include(GNUInstallDirs)
 
+# TODO: How to check seccomp correctly?
 find_package(Seccomp)
 
 check_function_exists("asprintf" HAVE_ASPRINTF)
