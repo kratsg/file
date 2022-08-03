@@ -57,5 +57,7 @@ add_custom_command(
   COMMENT "Compile magic files to magic.mgc in ${CMAKE_CURRENT_BINARY_DIR}"
 )
 
+include(GNUInstallDirs)
+
 install(TARGETS magic LIBRARY)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/magic.mgc DESTINATION ${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR})
