@@ -56,3 +56,6 @@ add_custom_command(
   WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
   COMMENT "Compile magic files to magic.mgc in ${CMAKE_CURRENT_BINARY_DIR}"
 )
+
+install(TARGETS magic DESTINATION .)
+install(FILES magic.mgc DESTINATION .)
