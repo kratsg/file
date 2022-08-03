@@ -58,4 +58,4 @@ add_custom_command(
 )
 
 install(TARGETS magic LIBRARY)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/magic.mgc)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/magic.mgc DESTINATION .)
