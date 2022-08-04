@@ -9,7 +9,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 include(ConfigureChecks)
 
-add_library(magic SHARED
+add_library(magic STATIC
   src/buffer.c src/magic.c src/magic.h src/apprentice.c src/softmagic.c src/ascmagic.c
   src/encoding.c src/compress.c src/is_csv.c src/is_json.c src/is_tar.c src/readelf.c src/print.c
   src/fsmagic.c src/funcs.c src/file.h src/readelf.h src/tar.h src/apptype.c src/der.c src/der.h
