@@ -134,6 +134,18 @@ if(LIBSECCOMP AND Seccomp_FOUND)
   set(HAVE_LIBSECCOMP)
 endif()
 
+MACRO(REPLACE_FUNCTIONS sources)
+  FOREACH(name ${ARGN})
+    STRING(TOUPPER have_${name} SYMBOL_NAME)
+    CHECK_FUNCTION_EXISTS(${name} ${SYMBOL_NAME})
+    IF(NOT ${SYMBOL_NAME})
+      SET(${sources} ${${sources}} ${name}.c)
+    ENDIF(NOT ${SYMBOL_NAME})
+  ENDFOREACH(name)
+ENDMACRO(REPLACE_FUNCTIONS)
+
+REPLACE_FUNCTIONS(LIB_SOURCES getopt_long asprintf vasprintf strlcpy strlcat getline ctime_r asctime_r localtime_r gmtime_r pread strcasestr fmtcheck dprintf)
+
 add_definitions(-DMAGIC="${CMAKE_INSTALL_DATADIR}/magic")
 
 string(REPLACE "." "" VERSION ${PROJECT_VERSION})
