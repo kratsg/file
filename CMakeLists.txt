@@ -9,11 +9,14 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 include(ConfigureChecks)
 
+REPLACE_FUNCTIONS(LIB_SOURCES getopt_long asprintf vasprintf strlcpy strlcat getline ctime_r asctime_r localtime_r gmtime_r pread strcasestr fmtcheck dprintf)
+
 add_library(magic STATIC
   src/buffer.c src/magic.c src/magic.h src/apprentice.c src/softmagic.c src/ascmagic.c
   src/encoding.c src/compress.c src/is_csv.c src/is_json.c src/is_tar.c src/readelf.c src/print.c
   src/fsmagic.c src/funcs.c src/file.h src/readelf.h src/tar.h src/apptype.c src/der.c src/der.h
   src/file_opts.h src/elfclass.h src/mygetopt.h src/cdf.c src/cdf_time.c src/readcdf.c src/cdf.h
+  ${LIB_SOURCES}
 )
 target_compile_definitions(magic PUBLIC HAVE_CONFIG_H=1)
 target_include_directories(magic PUBLIC ${CMAKE_CURRENT_BINARY_DIR})

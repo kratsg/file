@@ -10,7 +10,7 @@ include(GNUInstallDirs)
 # TODO: How to check seccomp correctly?
 find_package(Seccomp)
 
-check_function_exists("asprintf" HAVE_ASPRINTF)
+#check_function_exists("asprintf" HAVE_ASPRINTF)
 check_function_exists("bcopy" HAVE_BCOPY)
 check_function_exists("ctime_r" HAVE_CTIME_R)
 check_function_exists("dprintf" HAVE_DPRINTF)
@@ -143,8 +143,6 @@ MACRO(REPLACE_FUNCTIONS sources)
     ENDIF(NOT ${SYMBOL_NAME})
   ENDFOREACH(name)
 ENDMACRO(REPLACE_FUNCTIONS)
-
-REPLACE_FUNCTIONS(LIB_SOURCES getopt_long asprintf vasprintf strlcpy strlcat getline ctime_r asctime_r localtime_r gmtime_r pread strcasestr fmtcheck dprintf)
 
 add_definitions(-DMAGIC="${CMAKE_INSTALL_DATADIR}/magic")
 
